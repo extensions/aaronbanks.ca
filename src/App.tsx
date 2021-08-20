@@ -1,18 +1,27 @@
 import React, {useState} from 'react';
 
 import CanoePage from "./CanoePage";
+import MountainsPage from "./MountainsPage";
 
 import logo from './face.png';
+import mountains1 from './AaronBanksLifePhotos/Mountains/AaronOnAMountain.1.jpg';
 
 import './App.css';
 
 const App = () => {
-  const [password, setPassword] = useState("");
+  const savedPassword = localStorage.getItem("savedPassword");
+
+  const [password, setPassword] = useState(savedPassword || "");
 
   const [currentPage, setCurrentPage] = useState<
      | "login"
      | "intro"
      | "canoe"
+     | "mountains"
+     | "roadtrips"
+     | "cooking"
+     | "pandemic"
+     | "programming"
   >("login");
 
   let content;
@@ -30,11 +39,15 @@ const App = () => {
         event.preventDefault();
       }}>
         <input
+          defaultValue={password}
           name="password"
           type="password"
           placeholder="Enter password here!"
           onChange={event => {
-            setPassword(event.target.value);
+            const password = event.target.value;
+
+            setPassword(password);
+            localStorage.setItem("savedPassword", password);
           }}
         />
         <button type="submit">
@@ -53,24 +66,60 @@ const App = () => {
           <p id="CanoeBio" onClick={() => {
             setCurrentPage("canoe")
           }}>
-            This paragraph summarizes my canoeing and canoe guide experiences <br />
-            when you click on the paragraph, something should happen <br />
-            maybe it expands in to a new page?! <br />
+           This paragraph talks about my programing<br />
+            THis is more text<br />
           </p>
-          <p id="SnowboardingBio">
-            This paragraph summarizes my canoeing and canoe guide experiences<br />
-            maybe it expands in to a new page?! <br />
+          <p id="MountainsBio" onClick={() => {
+            setCurrentPage("canoe")
+          }}>
+            <img src={mountains1} />
+          This paragraph talks about my mountain life and snowboarding<br />
+            THis is more text<br />
+          </p>
+          <p id="RoadtripsBio" onClick={() => {
+            setCurrentPage("canoe")
+          }}>
+          This paragraph talks about my roadtrips<br />
+            THis is more text<br />
+          </p>
+          <p id="CookingBio" onClick={() => {
+            setCurrentPage("canoe")
+          }}>
+          This paragraph talks about my cooking experience<br />
+            THis is more text<br />
+          </p>
+          <p id="PandemicBio" onClick={() => {
+            setCurrentPage("canoe")
+          }}>
+          This paragraph talks about my Pandemic experience<br />
+            THis is more text<br />
+          </p>
+          <p id="ProgrammingBio" onClick={() => {
+            setCurrentPage("canoe")
+          }}>
+            This paragraph talks about my programing<br />
+            THis is more text<br />
           </p>
       </div>
     } else if (currentPage === "canoe") {
       content = <CanoePage />
+    } else if (currentPage === "mountains") {
+      content = <MountainsPage />
+    // } else if (currentPage === "cooking") {
+    //   content = <cooking />
+    // } else if (currentPage === "pandemic") {
+    //   content = <pandemicPage />
+    // } else if (currentPage === "programming") {
+    //   content = <programmingPage />
+    // } else if (currentPage === "roadtrips") {
+    //   content = <CanoePage />
+
     } else {
       console.error("what the hell");
     }
 
   return (
     <div className="App">
-      <CanoePage />
 
       <header className="App-header">
         {content}

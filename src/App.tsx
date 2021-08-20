@@ -1,21 +1,28 @@
 import React, {useState} from 'react';
 
+import CanoePage from "./CanoePage";
+
 import logo from './face.png';
 
 import './App.css';
 
 const App = () => {
   const [password, setPassword] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
+
+  const [currentPage, setCurrentPage] = useState<
+     | "login"
+     | "intro"
+     | "canoe"
+  >("login");
 
   let content;
-  if (!loggedIn) {
+  if (currentPage === "login") {
     content = <div>
     <img src={logo} className="App-logo" />
       <p>
       <form onSubmit={event => {
         if (password === "kayla") {
-          setLoggedIn(true);
+          setCurrentPage("intro");
         } else {
           alert("fuck off");
         }
@@ -36,14 +43,35 @@ const App = () => {
       </form>
       </p>
     </div>
-    } else {
-      content = <div>
-        Hi
+    } else if (currentPage === "intro") {
+      content = <div className="mainPage">
+          <p id="IntroParagraph">
+            This is my first paragraph <br />
+            this is the next line of the paragraph <br />
+            and so on..... <br />
+          </p>
+          <p id="CanoeBio" onClick={() => {
+            setCurrentPage("canoe")
+          }}>
+            This paragraph summarizes my canoeing and canoe guide experiences <br />
+            when you click on the paragraph, something should happen <br />
+            maybe it expands in to a new page?! <br />
+          </p>
+          <p id="SnowboardingBio">
+            This paragraph summarizes my canoeing and canoe guide experiences<br />
+            maybe it expands in to a new page?! <br />
+          </p>
       </div>
+    } else if (currentPage === "canoe") {
+      content = <CanoePage />
+    } else {
+      console.error("what the hell");
     }
 
   return (
     <div className="App">
+      <CanoePage />
+
       <header className="App-header">
         {content}
       </header>

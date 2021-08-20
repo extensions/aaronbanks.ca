@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import logo from './bush.png';
+import logo from './face.png';
 
 import './App.css';
 
@@ -19,7 +19,7 @@ const App = () => {
         } else {
           alert("fuck off");
         }
-          
+
         event.preventDefault();
       }}>
         <input

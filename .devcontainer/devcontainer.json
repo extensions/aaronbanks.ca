@@ -1,0 +1,124 @@
+{
+  "dockerComposeFile": "compose.yaml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "extensions": [
+    "akamud.vscode-theme-onelight",
+    "denoland.vscode-deno",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "github.github-vscode-theme",
+    "ms-vscode.theme-1337",
+    "Tyriar.sort-lines",
+    "usernamehw.errorlens"
+  ],
+  "settings": {
+    "workbench.colorTheme": "GitHub Dark Default",
+    "deno.suggest.imports.hosts": {
+      "https://deno.land": true,
+      "https://cdn.skypack.dev": true
+    },
+    "[markdown]": {
+      "editor.defaultFormatter": "denoland.vscode-deno"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "denoland.vscode-deno"
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "denoland.vscode-deno"
+    },
+    "editor.codeLens": true,
+    "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+          "scope": "punctuation.definition.comment",
+          "settings": {
+            "foreground": "#0A44",
+            "fontStyle": "bold"
+          }
+        },
+        {
+          "scope": "comment",
+          "settings": {
+            "fontStyle": ""
+          }
+        }
+      ],
+      "[Default Dark+]": {
+        "textMateRules": [
+          {
+            "scope": "comment",
+            "settings": {
+              "foreground": "#FFF"
+            }
+          }
+        ]
+      },
+      "[Default Light+]": {
+        "textMateRules": [
+          {
+            "scope": "comment",
+            "settings": {
+              "foreground": "#000"
+            }
+          }
+        ]
+      },
+      "[GitHub Dark Default]": {
+        "textMateRules": [
+          {
+            "scope": "comment",
+            "settings": {
+              "foreground": "#FFF"
+            }
+          }
+        ]
+      },
+      "[1337]": {
+        "textMateRules": [
+          {
+            "scope": "comment",
+            "settings": {
+              "foreground": "#FFF"
+            }
+          }
+        ]
+      },
+      "[GitHub Light Default]": {
+        "textMateRules": [
+          {
+            "scope": "comment",
+            "settings": {
+              "foreground": "#000"
+            }
+          }
+        ]
+      },
+      "[Atom One Light]": {
+        "textMateRules": [
+          {
+            "scope": "comment",
+            "settings": {
+              "foreground": "#000"
+            }
+          }
+        ]
+      }
+    },
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "editor.minimap.maxColumn": 80,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.size": "fit",
+    "editor.renderWhitespace": "trailing",
+    "editor.rulers": [
+      80,
+      120
+    ],
+    "editor.wordWrap": "on",
+    "explorer.sortOrder": "filesFirst",
+    "files.autoSave": "onFocusChange",
+    "files.insertFinalNewline": true,
+    "git.autofetch": true
+  }
+}

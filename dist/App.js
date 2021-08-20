@@ -1,9 +1,12 @@
 import React, {useState} from "../_snowpack/pkg/react.js";
 import CanoePage from "./CanoePage.js";
+import MountainsPage from "./MountainsPage.js";
 import logo from "./face.png.proxy.js";
+import mountains1 from "./AaronBanksLifePhotos/Mountains/AaronOnAMountain.1.jpg.proxy.js";
 import "./App.css.proxy.js";
 const App = () => {
-  const [password, setPassword] = useState("");
+  const savedPassword = localStorage.getItem("savedPassword");
+  const [password, setPassword] = useState(savedPassword || "");
   const [currentPage, setCurrentPage] = useState("login");
   let content;
   if (currentPage === "login") {
@@ -20,11 +23,14 @@ const App = () => {
         event.preventDefault();
       }
     }, /* @__PURE__ */ React.createElement("input", {
+      defaultValue: password,
       name: "password",
       type: "password",
       placeholder: "Enter password here!",
       onChange: (event) => {
-        setPassword(event.target.value);
+        const password2 = event.target.value;
+        setPassword(password2);
+        localStorage.setItem("savedPassword", password2);
       }
     }), /* @__PURE__ */ React.createElement("button", {
       type: "submit"
@@ -39,17 +45,44 @@ const App = () => {
       onClick: () => {
         setCurrentPage("canoe");
       }
-    }, "This paragraph summarizes my canoeing and canoe guide experiences ", /* @__PURE__ */ React.createElement("br", null), "when you click on the paragraph, something should happen ", /* @__PURE__ */ React.createElement("br", null), "maybe it expands in to a new page?! ", /* @__PURE__ */ React.createElement("br", null)), /* @__PURE__ */ React.createElement("p", {
-      id: "SnowboardingBio"
-    }, "This paragraph summarizes my canoeing and canoe guide experiences", /* @__PURE__ */ React.createElement("br", null), "maybe it expands in to a new page?! ", /* @__PURE__ */ React.createElement("br", null)));
+    }, "This paragraph talks about my programing", /* @__PURE__ */ React.createElement("br", null), "THis is more text", /* @__PURE__ */ React.createElement("br", null)), /* @__PURE__ */ React.createElement("p", {
+      id: "MountainsBio",
+      onClick: () => {
+        setCurrentPage("canoe");
+      }
+    }, /* @__PURE__ */ React.createElement("img", {
+      src: mountains1
+    }), "This paragraph talks about my mountain life and snowboarding", /* @__PURE__ */ React.createElement("br", null), "THis is more text", /* @__PURE__ */ React.createElement("br", null)), /* @__PURE__ */ React.createElement("p", {
+      id: "RoadtripsBio",
+      onClick: () => {
+        setCurrentPage("canoe");
+      }
+    }, "This paragraph talks about my roadtrips", /* @__PURE__ */ React.createElement("br", null), "THis is more text", /* @__PURE__ */ React.createElement("br", null)), /* @__PURE__ */ React.createElement("p", {
+      id: "CookingBio",
+      onClick: () => {
+        setCurrentPage("canoe");
+      }
+    }, "This paragraph talks about my cooking experience", /* @__PURE__ */ React.createElement("br", null), "THis is more text", /* @__PURE__ */ React.createElement("br", null)), /* @__PURE__ */ React.createElement("p", {
+      id: "PandemicBio",
+      onClick: () => {
+        setCurrentPage("canoe");
+      }
+    }, "This paragraph talks about my Pandemic experience", /* @__PURE__ */ React.createElement("br", null), "THis is more text", /* @__PURE__ */ React.createElement("br", null)), /* @__PURE__ */ React.createElement("p", {
+      id: "ProgrammingBio",
+      onClick: () => {
+        setCurrentPage("canoe");
+      }
+    }, "This paragraph talks about my programing", /* @__PURE__ */ React.createElement("br", null), "THis is more text", /* @__PURE__ */ React.createElement("br", null)));
   } else if (currentPage === "canoe") {
     content = /* @__PURE__ */ React.createElement(CanoePage, null);
+  } else if (currentPage === "mountains") {
+    content = /* @__PURE__ */ React.createElement(MountainsPage, null);
   } else {
     console.error("what the hell");
   }
   return /* @__PURE__ */ React.createElement("div", {
     className: "App"
-  }, /* @__PURE__ */ React.createElement(CanoePage, null), /* @__PURE__ */ React.createElement("header", {
+  }, /* @__PURE__ */ React.createElement("header", {
     className: "App-header"
   }, content));
 };

@@ -1,0 +1,1 @@
+export default "/dist/AaronBanksLifePhotos/Mountains/AaronOnAMountain.1.jpg";

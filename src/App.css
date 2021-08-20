@@ -1,6 +1,10 @@
 .App {
   text-align: center;
 }
+
+form{
+  z-index: 1000;
+}
 .App code {
   background: #FFF3;
   padding: 4px 8px;
@@ -11,13 +15,13 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 4vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 2s linear;
   }
 }
 
